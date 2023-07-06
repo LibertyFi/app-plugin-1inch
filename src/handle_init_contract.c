@@ -43,6 +43,7 @@ void handle_init_contract(void *parameters) {
         case UNOSWAP_V5:
         case CLIPPER_SWAP:
         case UNOSWAP_WITH_PERMIT:
+        case FOOBAR:
             context->next_param = TOKEN_SENT;
             break;
         case UNISWAP_V3_SWAP:

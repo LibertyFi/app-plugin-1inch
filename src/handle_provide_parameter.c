@@ -105,6 +105,21 @@ static void handle_unoswap(ethPluginProvideParameter_t *msg, one_inch_parameters
     }
 }
 
+static void handle_deposit(ethPluginProvideParameter_t *msg, one_inch_parameters_t *context) {
+    switch (context->next_param) {
+        case TOKEN_SENT:  // tokenSent
+            handle_token_sent(msg, context);
+            context->next_param = NONE;
+            break;
+        case NONE:
+            break;
+        default:
+            PRINTF("Param not supported\n");
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            break;
+    }
+}
+
 static void handle_uniswap_v3_swap(ethPluginProvideParameter_t *msg,
                                    one_inch_parameters_t *context) {
     switch (context->next_param) {
@@ -378,6 +393,10 @@ void handle_provide_parameter(void *parameters) {
 
         context->offset = 0;  // Reset offset
         switch (context->selectorIndex) {
+            case FOOBAR: {
+                handle_deposit(msg, context);
+                break;
+            }
             case UNOSWAP:
             case UNOSWAP_V5: {
                 handle_unoswap(msg, context);

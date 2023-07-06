@@ -67,6 +67,8 @@ static const uint8_t ONE_INCH_FILL_ORDER_RFQ_TO_WITH_PERMIT_SELECTOR_V5[SELECTOR
 // fillOrderRFQ 0x3eca9c0a
 static const uint8_t ONE_INCH_FILL_ORDER_RFQ__SELECTOR_V5[SELECTOR_SIZE] = {0x3e, 0xca, 0x9c, 0x0a};
 
+static const uint8_t FOOBAR_SELECTOR[SELECTOR_SIZE] = {0xf3, 0x40, 0xfa, 0x01};
+
 // Array of all the different 1inch selectors.
 const uint8_t *const ONE_INCH_SELECTORS[NUM_ONE_INCH_SELECTORS] = {
     ONE_INCH_SWAP_SELECTOR,
@@ -86,6 +88,8 @@ const uint8_t *const ONE_INCH_SELECTORS[NUM_ONE_INCH_SELECTORS] = {
     ONE_INCH_CLIPPER_SWAP_TO_WITH_PERMIT_SELECTOR_V5,
     ONE_INCH_FILL_ORDER_RFQ__SELECTOR_V5,
     ONE_INCH_FILL_ORDER_RFQ_TO_WITH_PERMIT_SELECTOR_V5,
+
+    FOOBAR_SELECTOR,
 };
 
 // 1inch uses `0xeeeee` as a dummy address to represent ETH.

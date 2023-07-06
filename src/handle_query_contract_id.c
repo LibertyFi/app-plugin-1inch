@@ -7,6 +7,9 @@ void handle_query_contract_id(void *parameters) {
     strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
 
     switch (context->selectorIndex) {
+        case FOOBAR:
+            strlcpy(msg->version, "Foobar Deposit", msg->versionLength);
+            break;
         case SWAP:
         case SWAP_V5:
             strlcpy(msg->version, "Swap", msg->versionLength);
